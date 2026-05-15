@@ -384,24 +384,26 @@
         interested in early access to Access Test Forge.
       </p>
     </div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" id="contact-form"
+          action="https://formspree.io/f/mqenrdzr"
+          method="POST">
       <div class="form-row">
         <div class="form-field">
-          <label>First Name</label>
-          <input type="text" placeholder="Jane" required>
+          <label for="first-name">First Name</label>
+          <input id="first-name" type="text" name="firstName" placeholder="Jane" required>
         </div>
         <div class="form-field">
-          <label>Last Name</label>
-          <input type="text" placeholder="Smith" required>
+          <label for="last-name">Last Name</label>
+          <input id="last-name" type="text" name="lastName" placeholder="Smith" required>
         </div>
       </div>
       <div class="form-field">
-        <label>Email Address</label>
-        <input type="email" placeholder="jane@company.com" required>
+        <label for="email">Email Address</label>
+        <input id="email" type="email" name="email" placeholder="jane@company.com" required>
       </div>
       <div class="form-field">
-        <label>I am interested in</label>
-        <select>
+        <label for="interest">I am interested in</label>
+        <select id="interest" name="interest">
           <option value="">Select one...</option>
           <option>Early access to Access Test Forge</option>
           <option>ATF Assist POC details</option>
@@ -410,12 +412,16 @@
         </select>
       </div>
       <div class="form-field">
-        <label>Message</label>
-        <textarea placeholder="Tell us about your team and what you're building..."></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message"
+                  placeholder="Tell us about your team and what you're building..."></textarea>
       </div>
-      <button type="submit" class="btn-submit">Send Message</button>
+      <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
       <div id="form-msg" style="font-family:var(--mono);font-size:0.7rem;color:var(--accent-lt);display:none;margin-top:0.5rem;">
         Message received — we'll be in touch shortly.
+      </div>
+      <div id="form-err" style="font-family:var(--mono);font-size:0.7rem;color:#e05252;display:none;margin-top:0.5rem;">
+        Something went wrong. Please email us directly at support@aislingsolutions.org
       </div>
     </form>
   </div>
@@ -427,11 +433,39 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  document.getElementById('form-msg').style.display = 'block';
-  e.target.reset();
-}
+
+  const btn     = document.getElementById('submit-btn');
+  const msgOk   = document.getElementById('form-msg');
+  const msgErr  = document.getElementById('form-err');
+
+  // Reset state
+  msgOk.style.display  = 'none';
+  msgErr.style.display = 'none';
+  btn.textContent      = 'Sending...';
+  btn.disabled         = true;
+
+  try {
+    const response = await fetch(this.action, {
+      method:  'POST',
+      body:    new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      msgOk.style.display = 'block';
+      this.reset();
+    } else {
+      msgErr.style.display = 'block';
+    }
+  } catch {
+    msgErr.style.display = 'block';
+  } finally {
+    btn.textContent = 'Send Message';
+    btn.disabled    = false;
+  }
+});
 </script>
 </body>
 </html>
