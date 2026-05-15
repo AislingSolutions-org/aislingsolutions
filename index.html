@@ -46,6 +46,47 @@
   .nav-links a { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
 
+  /* ── AISLING TOOLTIP ── */
+  .aisling-tip {
+    position: relative;
+    cursor: default;
+  }
+  .aisling-tip::after {
+    content: 'pronounced ASH-ling · Irish: "dream" or "vision"';
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    white-space: nowrap;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.85);
+    background: var(--slate);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 2px solid var(--accent);
+    padding: 0.5rem 0.85rem;
+    border-radius: 2px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .aisling-tip:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Footer variant — tooltip opens upward */
+  .aisling-tip.tip-up::after {
+    top: auto;
+    bottom: calc(100% + 10px);
+    transform: translateY(4px);
+  }
+  .aisling-tip.tip-up:hover::after {
+    transform: translateY(0);
+  }
+
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: var(--slate); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%); z-index: 0; }
   .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; }
@@ -156,7 +197,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">Aisling<span>.</span></a>
+  <a href="#" class="nav-logo"><span class="aisling-tip">Aisling</span><span>.</span></a>
   <ul class="nav-links">
     <li><a href="#mission">Mission</a></li>
     <li><a href="#products">Products</a></li>
@@ -381,7 +422,7 @@
 </div>
 
 <footer>
-  <div class="footer-logo">Aisling<span>.</span></div>
+  <div class="footer-logo"><span class="aisling-tip tip-up">Aisling</span><span>.</span></div>
   <div class="footer-copy">© 2026 Aisling Solutions · Olympia, WA</div>
 </footer>
 
