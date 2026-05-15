@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aisling Solutions — Accessibility Testing, Reimagined</title>
+<meta name="description" content="Aisling Solutions builds AI-assisted accessibility testing tools that help QA teams identify test considerations that automated engines miss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0D0F12;
+    --paper:     #F5F3EE;
+    --slate:     #1C2231;
+    --accent:    #2E7D5E;
+    --accent-lt: #3DA677;
+    --muted:     #6B7280;
+    --rule:      #E2DDD6;
+    --mono:      'DM Mono', monospace;
+    --serif:     'DM Serif Display', serif;
+    --sans:      'Outfit', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(245,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: var(--slate); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%); z-index: 0; }
+  .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 42ch; line-height: 1.7; margin-bottom: 2.5rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--accent); color: #fff; padding: 0.9rem 1.75rem; border-radius: 3px; text-decoration: none; font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
+  .btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
+  .btn-primary svg { width: 14px; height: 14px; }
+  .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem 4rem 4rem; }
+  .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: rgba(255,255,255,0.08); }
+  .hero-stat { background: rgba(255,255,255,0.04); padding: 2rem 1.75rem; border: 1px solid rgba(255,255,255,0.07); }
+  .stat-num { font-family: var(--serif); font-size: 2.6rem; color: #fff; line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+  section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--accent); }
+  h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.25rem; }
+  .section-intro { font-size: 1.05rem; color: var(--muted); max-width: 58ch; line-height: 1.75; margin-bottom: 3.5rem; }
+
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 3rem; }
+  .mission-card { background: var(--paper); padding: 2.5rem; position: relative; }
+  .mission-card::before { content: attr(data-num); position: absolute; top: 2rem; right: 2rem; font-family: var(--serif); font-size: 3rem; color: var(--rule); line-height: 1; }
+  .mission-card h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); margin-bottom: 0.75rem; }
+  .mission-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+  #products { background: var(--slate); max-width: 100%; padding: 6rem 3rem; }
+  #products .inner { max-width: 1100px; margin: 0 auto; }
+  #products .section-label { color: var(--accent-lt); }
+  #products .section-label::before { background: var(--accent-lt); }
+  #products h2 { color: #fff; }
+  #products .section-intro { color: rgba(255,255,255,0.5); }
+
+  .product-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: rgba(255,255,255,0.07); }
+  .product-card { background: var(--slate); padding: 3rem; border: 1px solid rgba(255,255,255,0.07); position: relative; overflow: hidden; }
+  .product-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .product-card:hover::after { transform: scaleX(1); }
+  .product-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-lt); background: rgba(46,125,94,0.12); border: 1px solid rgba(46,125,94,0.25); display: inline-block; padding: 0.3rem 0.7rem; border-radius: 2px; margin-bottom: 1.5rem; }
+  .product-card h3 { font-family: var(--serif); font-size: 1.6rem; color: #fff; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+  .product-card p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 2rem; }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .feature-list li { font-family: var(--mono); font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.6rem; }
+  .feature-list li::before { content: '→'; color: var(--accent-lt); font-size: 0.8rem; }
+
+  .poc-highlight { margin-top: 3rem; border: 1px solid var(--rule); padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; background: #fff; }
+  .poc-highlight h3 { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .poc-highlight p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+  .poc-badge { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 0.5rem 1rem; white-space: nowrap; border-radius: 2px; }
+
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 1rem; }
+  .approach-item { border-top: 2px solid var(--rule); padding-top: 1.75rem; transition: border-color 0.2s; }
+  .approach-item:hover { border-color: var(--accent); }
+  .approach-num { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; }
+  .approach-item h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin-bottom: 0.6rem; }
+  .approach-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+  #contact { background: var(--ink); max-width: 100%; padding: 6rem 3rem; }
+  #contact .inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  #contact .section-label { color: var(--accent-lt); }
+  #contact .section-label::before { background: var(--accent-lt); }
+  #contact h2 { color: #fff; }
+  #contact .section-intro { color: rgba(255,255,255,0.45); margin-bottom: 0; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-field label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .form-field input, .form-field select, .form-field textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.75rem 1rem; font-family: var(--sans); font-size: 0.9rem; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--accent-lt); }
+  .form-field select option { background: var(--slate); }
+  .form-field textarea { resize: vertical; min-height: 100px; }
+  .btn-submit { background: var(--accent); color: #fff; border: none; padding: 0.9rem 1.75rem; font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+  .btn-submit:hover { background: var(--accent-lt); }
+
+  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.4); }
+  .footer-logo span { color: var(--accent-lt); }
+  .footer-copy { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.25); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.2s; }
+  .hero-sub { animation-delay: 0.3s; }
+  .btn-primary { animation-delay: 0.4s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero::before { display: none; }
+    .hero-left { padding: 6rem 1.5rem 2rem; }
+    .hero-right { background: var(--slate); padding: 2rem 1.5rem; }
+    .hero-stat-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .product-cards { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    #contact .inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Aisling<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Aisling Solutions</div>
+    <h1>Accessibility Testing,<br><em>Reimagined</em></h1>
+    <p class="hero-sub">
+      We build AI-assisted tools that help QA teams identify accessibility 
+      and functional test considerations that automated engines miss — 
+      keeping human judgment at the center of every decision.
+    </p>
+    <a href="#products" class="btn-primary">
+      View Our Products
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="stat-num">AI</div>
+        <div class="stat-label">Advisory-First Design</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Provider Architectures</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">WCAG</div>
+        <div class="stat-label">Referenced, Not Judged</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">0¢</div>
+        <div class="stat-label">To Run in POC Phase</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="mission">
+  <div class="section-label">Our Mission</div>
+  <h2>Built for the testers<br>the tools forget</h2>
+  <p class="section-intro">
+    Automated accessibility scanners catch what they can measure. 
+    They cannot explain why something matters, help a tester know what 
+    to validate manually, or bridge the gap between technical output 
+    and human understanding. We build the tools that fill that gap.
+  </p>
+  <div class="mission-grid">
+    <div class="mission-card" data-num="01">
+      <h3>Human-in-the-Loop</h3>
+      <p>Every output from our tools is framed as a suggestion for human review. AI supplements tester judgment — it never replaces it. No automated verdicts. No compliance certifications.</p>
+    </div>
+    <div class="mission-card" data-num="02">
+      <h3>Advisory by Design</h3>
+      <p>Our ethical guardrails are enforced in code, not just policy. Forbidden compliance language is blocked at the pipeline level before it can reach the user.</p>
+    </div>
+    <div class="mission-card" data-num="03">
+      <h3>Accessible to Build</h3>
+      <p>We believe accessibility tooling should not require enterprise budgets. Our architecture is designed to run on zero-dollar infrastructure during development, scaling to funded providers when ready.</p>
+    </div>
+    <div class="mission-card" data-num="04">
+      <h3>Open to Integrate</h3>
+      <p>Provider-agnostic architecture means our tools are not locked to any single AI vendor. Gemini, Ollama, Azure OpenAI — one configuration change, no code rewrites.</p>
+    </div>
+  </div>
+</section>
+
+<div id="products">
+  <div class="inner">
+    <div class="section-label">Our Products</div>
+    <h2>Two products.<br>One mission.</h2>
+    <p class="section-intro">
+      ATF Assist and Access Test Forge are designed to work together — 
+      the AI advisory layer proven in isolation, then integrated into 
+      the full testing platform.
+    </p>
+    <div class="product-cards">
+      <div class="product-card">
+        <div class="product-tag">POC Complete</div>
+        <h3>ATF Assist</h3>
+        <p>
+          An AI-powered CLI tool that analyzes HTML content and provides 
+          structured advisory guidance for accessibility and functional 
+          testing. Uses a swappable provider architecture supporting 
+          Gemini, Ollama, and Azure OpenAI.
+        </p>
+        <ul class="feature-list">
+          <li>Advisory accessibility test suggestions</li>
+          <li>Functional test ideas with accessibility context</li>
+          <li>Manual vs. automatable distinction</li>
+          <li>WCAG-referenced guidance — non-authoritative</li>
+          <li>Runs fully offline via local Ollama provider</li>
+          <li>Ethical guardrails enforced in pipeline code</li>
+        </ul>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">In Development</div>
+        <h3>Access Test Forge</h3>
+        <p>
+          A full SaaS platform for QA teams that integrates AI-assisted 
+          accessibility review directly into the testing workflow. 
+          ATF Assist's proven advisory layer becomes the intelligence 
+          engine behind the Recording Wizard and Review components.
+        </p>
+        <ul class="feature-list">
+          <li>Browser-based test recording with accessibility awareness</li>
+          <li>Component-level advisory analysis at point of interaction</li>
+          <li>Structured test case generation from recorded sessions</li>
+          <li>Team collaboration and review workflows</li>
+          <li>Enterprise provider support via Azure OpenAI</li>
+          <li>Designed for QA teams of all technical levels</li>
+        </ul>
+      </div>
+    </div>
+    <div class="poc-highlight">
+      <div>
+        <h3>ATF Assist POC — Validation Complete</h3>
+        <p>
+          The ATF Assist proof-of-concept has been built, validated, and demonstrated 
+          end-to-end. All exit criteria met. The provider abstraction layer, prompt strategy, 
+          and ethical guardrail system established in the POC fold directly into ATF v1.
+        </p>
+      </div>
+      <div class="poc-badge">v0.1 Complete</div>
+    </div>
+  </div>
+</div>
+
+<section id="approach">
+  <div class="section-label">Our Approach</div>
+  <h2>Principles we build by</h2>
+  <p class="section-intro">
+    Every architectural and product decision at Aisling Solutions 
+    flows from the same set of principles.
+  </p>
+  <div class="approach-grid">
+    <div class="approach-item">
+      <div class="approach-num">01 — Ethics</div>
+      <h3>Advisory, Always</h3>
+      <p>Our tools suggest. They never certify. Compliance language is blocked in code at the pipeline level — not as a policy consideration, but as an architectural constraint.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">02 — Architecture</div>
+      <h3>Vendor-Agnostic AI</h3>
+      <p>Provider lock-in is a liability. Our swappable provider pattern means we can run on free-tier models during development and enterprise models in production — without touching application code.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">03 — Scope</div>
+      <h3>Prove Before Building</h3>
+      <p>We validate the riskiest assumptions in isolation before integrating. The ATF Assist POC existed to answer one question — and it answered it cleanly before ATF v1 begins.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">04 — Users</div>
+      <h3>Built for Non-Experts</h3>
+      <p>Accessibility tooling that only works for accessibility experts is not accessibility tooling. Our interfaces are designed for manual testers, developers, and QA teams of all technical levels.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">05 — Security</div>
+      <h3>Credentials Never Committed</h3>
+      <p>Security practices are non-negotiable from day one. API keys live in gitignored config files. Example configs ship with empty values. No exceptions, no shortcuts.</p>
+    </div>
+    <div class="approach-item">
+      <div class="approach-num">06 — Funding</div>
+      <h3>Zero-Dollar by Default</h3>
+      <p>We build on free-tier infrastructure first, paid infrastructure when funded. This keeps development moving without financial pressure and validates the architecture independently of budget.</p>
+    </div>
+  </div>
+</section>
+
+<div id="contact">
+  <div class="inner">
+    <div>
+      <div class="section-label">Get in Touch</div>
+      <h2>Work with us.<br>Follow our progress.</h2>
+      <p class="section-intro">
+        We are in active development and selectively engaging with 
+        QA teams, accessibility professionals, and potential partners 
+        interested in early access to Access Test Forge.
+      </p>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" required>
+        </div>
+        <div class="form-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="form-field">
+        <label>I am interested in</label>
+        <select>
+          <option value="">Select one...</option>
+          <option>Early access to Access Test Forge</option>
+          <option>ATF Assist POC details</option>
+          <option>Partnership or integration</option>
+          <option>General inquiry</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your team and what you're building..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <div id="form-msg" style="font-family:var(--mono);font-size:0.7rem;color:var(--accent-lt);display:none;margin-top:0.5rem;">
+        Message received — we'll be in touch shortly.
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Aisling<span>.</span></div>
+  <div class="footer-copy">© 2026 Aisling Solutions · Olympia, WA</div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-msg').style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
