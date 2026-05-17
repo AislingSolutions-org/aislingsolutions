@@ -52,7 +52,7 @@
     cursor: default;
   }
   .aisling-tip::after {
-    content: 'pronounced ASH-ling · Irish: "dream" or "vision"';
+    content: 'pronounced ASH-ling · Irish: "dream" or "vision" · CMX: C, M & X — the reason we build.';
     position: absolute;
     left: 0;
     top: calc(100% + 10px);
@@ -115,6 +115,105 @@
   .mission-card::before { content: attr(data-num); position: absolute; top: 2rem; right: 2rem; font-family: var(--serif); font-size: 3rem; color: var(--rule); line-height: 1; }
   .mission-card h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); margin-bottom: 0.75rem; }
   .mission-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink); max-width: 100%; padding: 6rem 3rem; }
+  #about .inner { max-width: 1100px; margin: 0 auto; }
+  #about .section-label { color: var(--accent-lt); }
+  #about .section-label::before { background: var(--accent-lt); }
+  #about h2 { color: #fff; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .about-story p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-story p:last-child { margin-bottom: 0; }
+
+  .about-story strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  .about-story em {
+    color: var(--accent-lt);
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 1.1em;
+  }
+
+  .about-name-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 2.5rem;
+    position: sticky;
+    top: 7rem;
+  }
+
+  .name-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .name-part {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .name-word {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1;
+    min-width: 7rem;
+  }
+
+  .name-meaning {
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 1.25rem;
+  }
+
+  .name-meaning .label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-lt);
+    margin-bottom: 0.3rem;
+  }
+
+  .name-meaning .definition {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+  }
+
+  .name-meaning .definition strong {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  .name-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-name-card { position: static; }
+  }
 
   #products { background: var(--slate); max-width: 100%; padding: 6rem 3rem; }
   #products .inner { max-width: 1100px; margin: 0 auto; }
@@ -200,6 +299,7 @@
   <a href="#" class="nav-logo"><span class="aisling-tip">Aisling</span><span>.</span></a>
   <ul class="nav-links">
     <li><a href="#mission">Mission</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#approach">Approach</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -270,6 +370,88 @@
     </div>
   </div>
 </section>
+
+<div id="about">
+  <div class="inner">
+    <div class="section-label">About Us</div>
+    <h2>A name with three<br>layers of meaning</h2>
+    <div class="about-grid">
+      <div class="about-story">
+        <p>
+          <strong>Aisling Solutions CMX</strong> was founded by Mario Martinez,
+          a Software Quality Assurance Engineer with 15 years of experience
+          in automation development, test framework design, and accessibility
+          testing — who set out to build the tools he always wished existed.
+        </p>
+        <p>
+          The name carries everything that matters. <em>Aisling</em> is an Irish
+          word meaning <strong>dream</strong> or <strong>vision</strong> —
+          pronounced <strong>ASH-ling</strong>. It reflects what every startup
+          begins as: a belief that something better is possible.
+        </p>
+        <p>
+          <strong>CMX</strong> are the initials of the founder's children.
+          They are not an afterthought in the name — they are the reason
+          behind it. Building tools that matter, for a future worth building,
+          for the people who make it worth dreaming.
+        </p>
+        <p>
+          That combination — dream, purpose, and the people you do it for —
+          is what Aisling Solutions CMX is built on. It shapes every
+          architectural decision, every ethical constraint we enforce in
+          code, and every product we ship.
+        </p>
+        <p>
+          We are an early-stage software company based in Olympia, Washington,
+          building AI-assisted accessibility testing tools for QA teams
+          who may need more than what automated scanners can provide. Our first
+          proof-of-concept is complete. Our full platform is in active
+          development. And we are just getting started.
+        </p>
+      </div>
+      <div class="about-name-card">
+        <div class="name-layer">
+          <div class="name-part">
+            <div class="name-word">Aisling</div>
+            <div class="name-meaning">
+              <div class="label">Irish · pronounced ASH-ling</div>
+              <div class="definition">
+                <strong>Dream</strong> or <strong>vision</strong> —
+                a poetic form in Irish literature in which the speaker
+                is visited by a figure who reveals a better future.
+              </div>
+            </div>
+          </div>
+          <div class="name-divider"></div>
+          <div class="name-part">
+            <div class="name-word">Solutions</div>
+            <div class="name-meaning">
+              <div class="label">What we build</div>
+              <div class="definition">
+                Tools that solve real problems for real testers —
+                not theory, not demos. Software that works in
+                the QA workflows people actually use.
+              </div>
+            </div>
+          </div>
+          <div class="name-divider"></div>
+          <div class="name-part">
+            <div class="name-word">CMX</div>
+            <div class="name-meaning">
+              <div class="label">The reason we build</div>
+              <div class="definition">
+                The initials of the founder's children —
+                <strong>C</strong>, <strong>M</strong>, and <strong>X</strong>.
+                The people this is all for. The reason the dream
+                is worth pursuing.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="products">
   <div class="inner">
@@ -429,7 +611,7 @@
 
 <footer>
   <div class="footer-logo"><span class="aisling-tip tip-up">Aisling</span><span>.</span></div>
-  <div class="footer-copy">© 2026 Aisling Solutions · Olympia, WA</div>
+  <div class="footer-copy">© 2026 Aisling Solutions CMX LLC · Olympia, WA</div>
 </footer>
 
 <script>
