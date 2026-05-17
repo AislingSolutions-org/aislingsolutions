@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#cecece"/>
+      <stop offset="100%" stop-color="#303030"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="32" height="32" rx="4" fill="url(#bg)"/>
+  <!-- Green baseline accent -->
+  <line x1="0" y1="31" x2="32" y2="31" stroke="#2E7D5E" stroke-width="1.5"/>
+  <!-- Simplified C -->
+  <rect x="2" y="6" width="7" height="18" rx="0" fill="none" stroke="#d0d0d0" stroke-width="1.5"/>
+  <line x1="2" y1="6" x2="9" y2="6" stroke="#d0d0d0" stroke-width="1.5"/>
+  <line x1="2" y1="24" x2="9" y2="24" stroke="#d0d0d0" stroke-width="1.5"/>
+  <!-- Simplified M -->
+  <line x1="12" y1="6" x2="12" y2="24" stroke="#b0b0b0" stroke-width="1.5"/>
+  <line x1="12" y1="6" x2="16" y2="15" stroke="#b0b0b0" stroke-width="1.5"/>
+  <line x1="16" y1="15" x2="20" y2="6" stroke="#b0b0b0" stroke-width="1.5"/>
+  <line x1="20" y1="6" x2="20" y2="24" stroke="#b0b0b0" stroke-width="1.5"/>
+  <!-- Simplified X -->
+  <line x1="23" y1="6" x2="30" y2="24" stroke="#909090" stroke-width="1.5"/>
+  <line x1="30" y1="6" x2="23" y2="24" stroke="#909090" stroke-width="1.5"/>
+</svg>
