@@ -1,0 +1,80 @@
+<svg width="690" height="355" viewBox="0 0 690 355" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aisling Solutions CMX Logo">
+<defs>
+<linearGradient id="bgR" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#cecece"/>
+<stop offset="100%" stop-color="#303030"/>
+</linearGradient>
+<linearGradient id="gFR" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#2e2e2e"/>
+<stop offset="100%" stop-color="#090909"/>
+</linearGradient>
+<linearGradient id="gTR" x1="35" y1="0" x2="665" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#ffffff"/>
+<stop offset="100%" stop-color="#b0b0b0"/>
+</linearGradient>
+<linearGradient id="gSR" x1="35" y1="0" x2="665" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#909090"/>
+<stop offset="100%" stop-color="#484848"/>
+</linearGradient>
+</defs>
+<rect width="690" height="355" fill="url(#bgR)"/>
+<line x1="0" y1="353" x2="690" y2="353" stroke="#2E7D5E" stroke-width="2.5"/>
+<!-- C letterform -->
+<polygon points="35,85 55,70 215,70 195,85" fill="url(#gTR)"/>
+<polygon points="35,290 55,275 215,275 195,290" fill="url(#gTR)"/>
+<polygon points="195,85 215,70 215,120 195,135" fill="url(#gSR)"/>
+<polygon points="85,135 105,120 105,275 85,290" fill="url(#gSR)"/>
+<polygon points="195,290 215,275 215,325 195,340" fill="url(#gSR)"/>
+<polygon points="35,85 195,85 195,135 35,135" fill="url(#gFR)"/>
+<polygon points="35,85 85,85 85,340 35,340" fill="url(#gFR)"/>
+<polygon points="35,290 195,290 195,340 35,340" fill="url(#gFR)"/>
+<!-- M letterform -->
+<polygon points="220,85 240,70 283,70 263,85" fill="url(#gTR)"/>
+<polygon points="392,85 412,70 455,70 435,85" fill="url(#gTR)"/>
+<polygon points="263,215 283,200 412,200 392,215" fill="url(#gTR)"/>
+<polygon points="263,85 283,70 348,200 328,215" fill="url(#gSR)"/>
+<polygon points="263,215 283,200 283,325 263,340" fill="url(#gSR)"/>
+<polygon points="392,85 412,70 348,200 328,215" fill="url(#gSR)"/>
+<polygon points="435,85 455,70 455,325 435,340" fill="url(#gSR)"/>
+<polygon points="220,85 263,85 328,215 263,215 263,340 220,340" fill="url(#gFR)"/>
+<polygon points="435,85 392,85 328,215 392,215 392,340 435,340" fill="url(#gFR)"/>
+<!-- X letterform -->
+<polygon points="460,85 480,70 523,70 503,85" fill="url(#gTR)"/>
+<polygon points="606,85 626,70 665,70 645,85" fill="url(#gTR)"/>
+<polygon points="503,85 523,70 665,325 645,340" fill="url(#gSR)"/>
+<polygon points="645,85 665,70 523,325 503,340" fill="url(#gSR)"/>
+<polygon points="460,85 503,85 645,340 606,340" fill="url(#gFR)"/>
+<polygon points="606,85 645,85 503,340 460,340" fill="url(#gFR)"/>
+<!-- C child: book/reading, feet at y=340 -->
+<g transform="translate(125,302)" stroke="#3DA677" stroke-width="2.5" stroke-linecap="round" fill="none">
+<circle cx="0" cy="-28" r="13"/>
+<line x1="0" y1="-15" x2="0" y2="10"/>
+<line x1="-18" y1="-3" x2="18" y2="-3"/>
+<line x1="0" y1="10" x2="-15" y2="38"/>
+<line x1="0" y1="10" x2="15" y2="38"/>
+<rect x="-38" y="-12" width="11" height="15" rx="1"/>
+<rect x="-28" y="-12" width="11" height="15" rx="1"/>
+<line x1="-28" y1="-12" x2="-28" y2="3"/>
+</g>
+<!-- M child: music, feet at y=340 -->
+<g transform="translate(337,302)" stroke="#3DA677" stroke-width="2.5" stroke-linecap="round" fill="none">
+<circle cx="0" cy="-28" r="13"/>
+<line x1="0" y1="-15" x2="0" y2="10"/>
+<line x1="-18" y1="-3" x2="18" y2="-3"/>
+<line x1="0" y1="10" x2="-15" y2="38"/>
+<line x1="0" y1="10" x2="15" y2="38"/>
+<text x="20" y="-18" fill="#3DA677" stroke="none" font-size="22" font-family="sans-serif">♪</text>
+<text x="34" y="-4" fill="#3DA677" stroke="none" font-size="15" font-family="sans-serif">♫</text>
+</g>
+<!-- X child: tech/laptop, feet at y=340 -->
+<g transform="translate(562,302)" stroke="#3DA677" stroke-width="2.5" stroke-linecap="round" fill="none">
+<circle cx="0" cy="-28" r="13"/>
+<line x1="0" y1="-15" x2="0" y2="10"/>
+<line x1="-18" y1="-3" x2="18" y2="-3"/>
+<line x1="0" y1="10" x2="-15" y2="38"/>
+<line x1="0" y1="10" x2="15" y2="38"/>
+<rect x="22" y="-14" width="26" height="18" rx="2"/>
+<rect x="25" y="-11" width="18" height="12" rx="1" fill="#2E7D5E" stroke="none" opacity="0.5"/>
+<line x1="20" y1="4" x2="50" y2="4"/>
+</g>
+</svg>

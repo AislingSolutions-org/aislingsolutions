@@ -1,0 +1,82 @@
+<svg width="1584" height="396" viewBox="0 0 690 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aisling Solutions CMX LinkedIn Banner">
+<defs>
+<linearGradient id="bgB" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#d0d0d0"/>
+<stop offset="42%" stop-color="#4a4a4a"/>
+<stop offset="100%" stop-color="#060606"/>
+</linearGradient>
+<linearGradient id="gFB" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#2a2a2a"/>
+<stop offset="100%" stop-color="#060606"/>
+</linearGradient>
+</defs>
+<rect width="690" height="170" fill="url(#bgB)"/>
+<!-- Green accent lines -->
+<line x1="0" y1="168" x2="690" y2="168" stroke="#2E7D5E" stroke-width="2.5"/>
+<line x1="30" y1="22" x2="30" y2="148" stroke="#2E7D5E" stroke-width="2"/>
+<!-- CMX 3D letterforms -->
+<g transform="translate(140,28) scale(0.38)">
+<polygon points="35,85 55,70 215,70 195,85" fill="#c0c0c0"/>
+<polygon points="35,290 55,275 215,275 195,290" fill="#c0c0c0"/>
+<polygon points="195,85 215,70 215,120 195,135" fill="#606060"/>
+<polygon points="85,135 105,120 105,275 85,290" fill="#585858"/>
+<polygon points="195,290 215,275 215,325 195,340" fill="#606060"/>
+<polygon points="35,85 195,85 195,135 35,135" fill="url(#gFB)"/>
+<polygon points="35,85 85,85 85,340 35,340" fill="url(#gFB)"/>
+<polygon points="35,290 195,290 195,340 35,340" fill="url(#gFB)"/>
+<polygon points="220,85 240,70 283,70 263,85" fill="#c0c0c0"/>
+<polygon points="392,85 412,70 455,70 435,85" fill="#c0c0c0"/>
+<polygon points="263,215 283,200 412,200 392,215" fill="#c0c0c0"/>
+<polygon points="263,85 283,70 348,200 328,215" fill="#606060"/>
+<polygon points="263,215 283,200 283,325 263,340" fill="#585858"/>
+<polygon points="392,85 412,70 348,200 328,215" fill="#606060"/>
+<polygon points="435,85 455,70 455,325 435,340" fill="#606060"/>
+<polygon points="220,85 263,85 328,215 263,215 263,340 220,340" fill="url(#gFB)"/>
+<polygon points="435,85 392,85 328,215 392,215 392,340 435,340" fill="url(#gFB)"/>
+<polygon points="460,85 480,70 523,70 503,85" fill="#c0c0c0"/>
+<polygon points="606,85 626,70 665,70 645,85" fill="#c0c0c0"/>
+<polygon points="503,85 523,70 665,325 645,340" fill="#606060"/>
+<polygon points="645,85 665,70 523,325 503,340" fill="#606060"/>
+<polygon points="460,85 503,85 645,340 606,340" fill="url(#gFB)"/>
+<polygon points="606,85 645,85 503,340 460,340" fill="url(#gFB)"/>
+</g>
+<!-- C child: book/reading -->
+<g stroke="#3DA677" stroke-width="1.5" stroke-linecap="round" fill="none">
+<circle cx="188" cy="17" r="5"/>
+<line x1="188" y1="22" x2="188" y2="36"/>
+<line x1="180" y1="28" x2="196" y2="28"/>
+<line x1="188" y1="36" x2="182" y2="47"/>
+<line x1="188" y1="36" x2="194" y2="47"/>
+<rect x="170" y="24" width="5" height="7" rx="0.5"/>
+<rect x="175" y="24" width="5" height="7" rx="0.5"/>
+<line x1="175" y1="24" x2="175" y2="31"/>
+</g>
+<!-- M child: music -->
+<g stroke="#3DA677" stroke-width="1.5" stroke-linecap="round" fill="none">
+<circle cx="268" cy="17" r="5"/>
+<line x1="268" y1="22" x2="268" y2="36"/>
+<line x1="260" y1="28" x2="276" y2="28"/>
+<line x1="268" y1="36" x2="262" y2="47"/>
+<line x1="268" y1="36" x2="274" y2="47"/>
+</g>
+<text x="278" y="29" fill="#3DA677" font-size="13" font-family="sans-serif">♪</text>
+<!-- X child: tech/laptop -->
+<g stroke="#3DA677" stroke-width="1.5" stroke-linecap="round" fill="none">
+<circle cx="354" cy="17" r="5"/>
+<line x1="354" y1="22" x2="354" y2="36"/>
+<line x1="346" y1="28" x2="362" y2="28"/>
+<line x1="354" y1="36" x2="348" y2="47"/>
+<line x1="354" y1="36" x2="360" y2="47"/>
+<rect x="364" y="23" width="13" height="9" rx="1"/>
+<rect x="366" y="25" width="9" height="6" rx="0.5" fill="#2E7D5E" stroke="none" opacity="0.55"/>
+<line x1="362" y1="32" x2="379" y2="32"/>
+</g>
+<!-- C M X labels -->
+<text x="208" y="55" fill="#2E7D5E" font-size="6.5" font-family="sans-serif" letter-spacing="8" opacity="0.7">C          M          X</text>
+<!-- Wordmark: right dark zone -->
+<text x="418" y="84" font-family="Georgia,serif" font-size="44" fill="white" letter-spacing="2">Aisling</text>
+<line x1="418" y1="93" x2="666" y2="93" stroke="#2E7D5E" stroke-width="1.2"/>
+<text x="420" y="110" font-family="sans-serif" font-size="10" letter-spacing="7" fill="#aaaaaa">SOLUTIONS</text>
+<text x="420" y="137" font-family="Georgia,serif" font-size="28" fill="#3DA677" letter-spacing="5">CMX</text>
+<text x="420" y="157" font-family="sans-serif" font-size="7.5" letter-spacing="1.5" fill="#555555">aislingsolutions.org</text>
+</svg>
